@@ -127,13 +127,13 @@ const tools = [
     name: "Opencode",
     description: "AI Code Editor",
     href: "https://opencode.ai",
-    icon: "/opencode.png",
+    icon: "/opencode-v2.png",
   },
   {
     name: "After Effects",
     description: "Motion Design",
     href: "https://www.adobe.com/products/aftereffects.html",
-    icon: "/after-effects.png",
+    icon: "/after-effects-v2.png",
   },
 ];
 
@@ -179,7 +179,7 @@ const budgetOptions = [
 
 function SectionTitle({ line1, line2 }: { line1: string; line2: string }) {
   return (
-    <div className="mb-8 md:mb-12">
+    <div className="mb-8 text-center md:mb-12 lg:text-left">
       <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
         {line1}
       </h2>
@@ -320,11 +320,11 @@ export default function PortfolioPage() {
       </aside>
 
       {/* Right column */}
-      <main className="w-full min-w-0 max-w-full flex-1 px-6 pt-[40px] lg:w-[60%] lg:flex-shrink-0 lg:px-0 lg:pr-[60px] lg:pt-[130px]">
+      <main className="w-full min-w-0 max-w-full flex-1 px-6 pt-[110px] lg:w-[60%] lg:flex-shrink-0 lg:px-0 lg:pr-[60px] lg:pt-[130px]">
         <MobileHeader />
 
         {/* Top nav — centered, no pill */}
-        <nav className="fixed bottom-[max(1.5rem,env(safe-area-inset-bottom))] left-1/2 z-50 flex -translate-x-1/2 items-center gap-6 rounded-full border border-white/10 bg-[#1e1e1e]/85 px-5 py-2.5 shadow-lg shadow-black/40 backdrop-blur-md lg:bottom-auto lg:top-10 lg:gap-8 lg:rounded-none lg:border-0 lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none lg:backdrop-blur-none">
+        <nav className="fixed top-[max(1rem,env(safe-area-inset-top))] left-1/2 z-50 flex -translate-x-1/2 items-center gap-6 rounded-full border border-white/10 bg-[#1e1e1e]/85 px-5 py-2.5 shadow-lg shadow-black/40 backdrop-blur-md lg:top-10 lg:gap-8 lg:rounded-none lg:border-0 lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none lg:backdrop-blur-none">
           {navItems.map((item) => {
             const Icon = item.icon;
             return (
@@ -342,23 +342,23 @@ export default function PortfolioPage() {
 
         {/* Hero */}
         <section id="hero" className="flex min-w-0 flex-col pt-10 lg:pt-0">
-          <div className="leading-none">
-            <span className="block font-black uppercase tracking-tight text-[40px] text-white sm:text-[48px] md:text-[72px] lg:text-[96px]" style={{ lineHeight: "0.95" }}>
+          <div className="leading-none text-center lg:text-left">
+            <span className="block font-black uppercase tracking-tight text-[52px] text-white sm:text-[48px] md:text-[72px] lg:text-[96px]" style={{ lineHeight: "0.95" }}>
               DEVELOPER
             </span>
-            <span className="block font-black uppercase tracking-tight text-[40px] sm:text-[48px] md:text-[72px] lg:text-[96px]" style={{ color: "#333333", lineHeight: "0.95" }}>
+            <span className="block font-black uppercase tracking-tight text-[52px] sm:text-[48px] md:text-[72px] lg:text-[96px]" style={{ color: "#333333", lineHeight: "0.95" }}>
               EDITOR
             </span>
           </div>
 
-          <p className="mb-12 mt-8 max-w-[420px] text-[15px] leading-relaxed text-[#888888]">
+          <p className="mb-12 mt-8 max-w-[420px] text-center text-[15px] leading-relaxed text-[#888888] lg:text-left">
             Passionate about creating intuitive software and professional grade
             videos, specializing in SaaS and short form editing.
           </p>
 
-          <div className="mb-16 flex flex-wrap gap-6 md:gap-16">
+          <div className="mb-16 flex flex-wrap justify-center gap-6 md:gap-16 lg:justify-start">
             {stats.map((stat) => (
-              <div key={stat.label}>
+              <div key={stat.label} className="text-center">
                 <div
                   className="font-bold leading-none text-white text-[40px] md:text-[52px] lg:text-[64px]"
                 >
@@ -378,11 +378,11 @@ export default function PortfolioPage() {
             ))}
           </div>
 
-          <div className="mt-6 flex w-full min-w-0 flex-col gap-4 pb-6 md:flex-row">
+          <div className="mt-6 flex w-full min-w-0 flex-col items-center gap-4 pb-6 md:flex-row md:items-stretch lg:items-stretch">
             {/* Orange card */}
             <Link
               href="/motion-design"
-              className="relative flex h-[200px] w-full min-w-0 flex-col justify-between overflow-hidden rounded-[12px] bg-[#f06b4a] p-6 transition-opacity duration-300 hover:opacity-90 md:h-[240px] md:w-[340px]"
+              className="relative flex h-[200px] w-full min-w-0 max-w-[340px] flex-col justify-between overflow-hidden rounded-[12px] bg-[#f06b4a] p-6 transition-opacity duration-300 hover:opacity-90 md:h-[240px] md:w-[340px]"
             >
               {/* Curved line pattern */}
               <svg
@@ -427,7 +427,7 @@ export default function PortfolioPage() {
             {/* Lime card */}
             <Link
               href="/web-design"
-              className="relative flex h-[200px] w-full min-w-0 flex-col justify-between overflow-hidden rounded-[12px] bg-[#d4f538] p-6 transition-opacity duration-300 hover:opacity-90 md:h-[240px] md:w-[340px]"
+              className="relative flex h-[200px] w-full min-w-0 max-w-[340px] flex-col justify-between overflow-hidden rounded-[12px] bg-[#d4f538] p-6 transition-opacity duration-300 hover:opacity-90 md:h-[240px] md:w-[340px]"
             >
               {/* Zigzag chart pattern */}
               <svg
@@ -488,10 +488,10 @@ export default function PortfolioPage() {
                   />
                 </div>
                 <div className="relative flex-1">
-                  <h3 className="text-xl font-bold text-white md:text-2xl">
+                  <h3 className="text-center text-xl font-bold text-white md:text-left md:text-2xl">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-[#9ca3af] md:text-base">
+                  <p className="text-center text-sm text-[#9ca3af] md:text-left md:text-base">
                     {project.subtitle}
                   </p>
                 </div>
@@ -518,10 +518,10 @@ export default function PortfolioPage() {
                 <div className="absolute inset-0 bg-white/0 transition-all duration-500 group-hover:bg-white/[0.03]" />
                 <div className="relative flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="mb-2 text-2xl font-bold text-white md:text-3xl">
+                    <h3 className="mb-2 text-center text-2xl font-bold text-white md:text-left md:text-3xl">
                       {exp.title}
                     </h3>
-                    <p className="max-w-xl text-base leading-relaxed text-[#9ca3af]">
+                    <p className="max-w-xl text-center text-base leading-relaxed text-[#9ca3af] md:text-left">
                       {exp.description}
                     </p>
                   </div>
@@ -560,8 +560,12 @@ export default function PortfolioPage() {
                   )}
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white">{tool.name}</h3>
-                  <p className="text-sm text-[#9ca3af]">{tool.description}</p>
+                  <h3 className="text-center text-lg font-bold text-white md:text-left">
+                    {tool.name}
+                  </h3>
+                  <p className="text-center text-sm text-[#9ca3af] md:text-left">
+                    {tool.description}
+                  </p>
                 </div>
               </Link>
             ))}
@@ -581,13 +585,13 @@ export default function PortfolioPage() {
                 <div className="absolute inset-0 bg-white/0 transition-all duration-500 group-hover:bg-white/[0.03]" />
                 <div className="relative flex items-start justify-between gap-4 p-5">
                   <div>
-                    <h3 className="mb-2 text-xl font-bold text-white md:text-2xl">
+                    <h3 className="mb-2 text-center text-xl font-bold text-white md:text-left md:text-2xl">
                       {thought.title}
                     </h3>
-                    <p className="mb-4 max-w-xl text-base leading-relaxed text-[#9ca3af]">
+                    <p className="mb-4 max-w-xl text-center text-base leading-relaxed text-[#9ca3af] md:text-left">
                       {thought.excerpt}
                     </p>
-                    <div className="flex items-center gap-4 text-sm text-[#9ca3af]">
+                    <div className="flex items-center justify-center gap-4 text-sm text-[#9ca3af] md:justify-start">
                       <span>{thought.date}</span>
                       <span>{thought.readTime}</span>
                     </div>
@@ -603,7 +607,7 @@ export default function PortfolioPage() {
 
         {/* Contact */}
         <section id="contact" className="mb-24 md:mb-32">
-          <div className="mb-10 md:mb-14">
+          <div className="mb-10 text-center md:mb-14 lg:text-left">
             <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
               LET&apos;S WORK
             </h2>
