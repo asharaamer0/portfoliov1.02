@@ -31,6 +31,11 @@ export const metadata: Metadata = {
   creator: "Ashar Aamer",
   publisher: "Ashar Aamer",
   alternates: { canonical: "/" },
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
   openGraph: {
     type: "website",
     url: "https://suffixs.vercel.app",
@@ -39,12 +44,21 @@ export const metadata: Metadata = {
     description:
       "Pakistan-based developer and video editor available for clients worldwide.",
     locale: "en_US",
+    images: [
+      {
+        url: "/pfpicon.png",
+        width: 512,
+        height: 512,
+        alt: "Ashar Aamer profile image",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Ashar Aamer | Developer & Video Editor",
     description:
       "Pakistan-based developer and video editor available for clients worldwide.",
+    images: ["/pfpicon.png"],
   },
   robots: {
     index: true,
