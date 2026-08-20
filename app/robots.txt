@@ -1,0 +1,10 @@
+# Ashar Aamer — developer and video editor based in Pakistan.
+# Available for freelance and contract work with clients in Pakistan and worldwide.
+# Client inquiries: https://suffixs.vercel.app/#contact
+# Public profiles: Discord (suffixs), Instagram (@asharaamer), GitHub (Suffixsxd)
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://suffixs.vercel.app/sitemap.xml

@@ -320,7 +320,7 @@ export default function PortfolioPage() {
       </aside>
 
       {/* Right column */}
-      <main className="min-w-0 flex-shrink-0 px-6 pt-[40px] lg:w-[60%] lg:px-0 lg:pr-[60px] lg:pt-[130px]">
+      <main className="w-full min-w-0 max-w-full flex-1 px-6 pt-[40px] lg:w-[60%] lg:flex-shrink-0 lg:px-0 lg:pr-[60px] lg:pt-[130px]">
         <MobileHeader />
 
         {/* Top nav — centered, no pill */}

@@ -11,7 +11,7 @@ const socialLinks = [
 
 export default function MobileHeader() {
   return (
-    <div className="mb-10 flex flex-col items-center rounded-[28px] bg-white p-5 text-[#171717] lg:hidden">
+    <div className="mb-10 flex w-full max-w-full flex-col items-center overflow-hidden rounded-[28px] bg-white p-5 text-[#171717] lg:hidden">
       <div className="relative mb-4 w-32 overflow-hidden rounded-[12px] bg-[#cc3300]">
         <Image
           src="/pfpicon.png"
