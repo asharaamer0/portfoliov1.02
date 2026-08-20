@@ -45,7 +45,7 @@ export default function CustomSelect({
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex w-full items-center justify-between rounded-xl bg-[#2a2a2a] px-4 py-3 text-left text-white transition-opacity duration-300 hover:opacity-80 focus:outline-none"
+        className="flex w-full items-center justify-between rounded-lg bg-[#2a2a2a] px-4 py-2.5 text-left text-sm text-white transition-opacity duration-300 hover:opacity-80 focus:outline-none"
       >
         <span className={value ? "text-white" : "text-[#6b7280]"}>
           {selectedLabel}
@@ -57,7 +57,7 @@ export default function CustomSelect({
         />
       </button>
       {isOpen && (
-        <div className="absolute z-50 mt-2 w-full overflow-hidden rounded-xl border border-white/10 bg-[#1e1e1e] shadow-2xl">
+        <div className="absolute z-50 mt-2 w-full overflow-hidden rounded-lg border border-white/10 bg-[#1e1e1e] shadow-2xl">
           {options.map((option) => (
             <button
               key={option.value}
@@ -66,7 +66,7 @@ export default function CustomSelect({
                 onChange(option.value);
                 setIsOpen(false);
               }}
-              className={`w-full px-4 py-3 text-left transition-all duration-200 hover:bg-white/10 ${
+              className={`w-full px-4 py-2.5 text-left text-sm transition-all duration-200 hover:bg-white/10 ${
                 value === option.value
                   ? "bg-white/10 text-white"
                   : "text-[#9ca3af]"

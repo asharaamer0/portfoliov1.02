@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import MobileHeader from "./components/MobileHeader";
 import CustomSelect from "./components/CustomSelect";
+import HoverTooltip from "./components/HoverTooltip";
 
 const navItems = [
   { href: "#hero", icon: Home, label: "Home" },
@@ -309,9 +310,10 @@ export default function PortfolioPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
-                  className="text-[#e8533a] transition-opacity duration-300 hover:opacity-70"
+                  className="group relative text-[#e8533a] transition-opacity duration-300 hover:opacity-70"
                 >
                   <Icon className="h-5 w-5" />
+                  <HoverTooltip label={link.label} />
                 </Link>
               );
             })}
@@ -324,7 +326,7 @@ export default function PortfolioPage() {
         <MobileHeader />
 
         {/* Top nav — centered, no pill */}
-        <nav className="fixed top-[max(1rem,env(safe-area-inset-top))] left-1/2 z-50 flex -translate-x-1/2 items-center gap-6 rounded-full border border-white/10 bg-[#1e1e1e]/85 px-5 py-2.5 shadow-lg shadow-black/40 backdrop-blur-md lg:top-10 lg:gap-8 lg:rounded-none lg:border-0 lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none lg:backdrop-blur-none">
+        <nav className="fixed top-[max(1rem,env(safe-area-inset-top))] left-1/2 z-50 flex -translate-x-1/2 items-center gap-6 rounded-full border border-white/10 bg-[#1e1e1e]/85 px-5 py-2.5 shadow-lg shadow-black/40 backdrop-blur-md lg:top-10 lg:gap-8 lg:rounded-full lg:border lg:border-white/10 lg:bg-[#1e1e1e]/85 lg:px-6 lg:py-3 lg:shadow-lg lg:shadow-black/40 lg:backdrop-blur-md">
           {navItems.map((item) => {
             const Icon = item.icon;
             return (
@@ -332,9 +334,10 @@ export default function PortfolioPage() {
                 key={item.href}
                 href={item.href}
                 aria-label={item.label}
-                className="text-white/70 transition-colors hover:text-white"
+                className="group relative text-white/70 transition-colors hover:text-white"
               >
                 <Icon size={20} />
+                <HoverTooltip label={item.label} />
               </Link>
             );
           })}
@@ -382,7 +385,7 @@ export default function PortfolioPage() {
             {/* Orange card */}
             <Link
               href="/motion-design"
-              className="relative flex h-[200px] w-full min-w-0 max-w-[340px] flex-col justify-between overflow-hidden rounded-[12px] bg-[#f06b4a] p-6 transition-opacity duration-300 hover:opacity-90 md:h-[240px] md:w-[340px]"
+              className="group relative flex h-[200px] w-full min-w-0 max-w-[340px] flex-col justify-between overflow-hidden rounded-[12px] bg-[#f06b4a] p-6 transition-opacity duration-300 hover:opacity-90 md:h-[240px] md:w-[340px]"
             >
               {/* Curved line pattern */}
               <svg
@@ -422,12 +425,16 @@ export default function PortfolioPage() {
                   <ArrowRight size={14} className="text-white" />
                 </div>
               </div>
+              <HoverTooltip
+                label="Motion"
+                className="left-auto right-3 top-3 mt-0 -translate-x-0"
+              />
             </Link>
 
             {/* Lime card */}
             <Link
               href="/web-design"
-              className="relative flex h-[200px] w-full min-w-0 max-w-[340px] flex-col justify-between overflow-hidden rounded-[12px] bg-[#d4f538] p-6 transition-opacity duration-300 hover:opacity-90 md:h-[240px] md:w-[340px]"
+              className="group relative flex h-[200px] w-full min-w-0 max-w-[340px] flex-col justify-between overflow-hidden rounded-[12px] bg-[#d4f538] p-6 transition-opacity duration-300 hover:opacity-90 md:h-[240px] md:w-[340px]"
             >
               {/* Zigzag chart pattern */}
               <svg
@@ -463,6 +470,10 @@ export default function PortfolioPage() {
                   <ArrowRight size={14} className="text-black" />
                 </div>
               </div>
+              <HoverTooltip
+                label="Web"
+                className="left-auto right-3 top-3 mt-0 -translate-x-0"
+              />
             </Link>
           </div>
         </section>
@@ -498,6 +509,10 @@ export default function PortfolioPage() {
                 <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#ed6b4e] text-[#ed6b4e] transition-all duration-300 group-hover:bg-white/10 md:mr-2">
                   <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" />
                 </div>
+                <HoverTooltip
+                  label={project.title}
+                  className="left-auto right-3 top-3 mt-0 -translate-x-0"
+                />
               </Link>
             ))}
           </div>
@@ -529,6 +544,10 @@ export default function PortfolioPage() {
                     <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" />
                   </div>
                 </div>
+                <HoverTooltip
+                  label={exp.title}
+                  className="left-auto right-3 top-3 mt-0 -translate-x-0"
+                />
               </Link>
             ))}
           </div>
@@ -544,7 +563,7 @@ export default function PortfolioPage() {
                 href={tool.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-4 rounded-2xl bg-transparent p-3 transition-all duration-300 hover:bg-white/[0.04]"
+                className="group relative flex items-center gap-4 rounded-2xl bg-transparent p-3 transition-all duration-300 hover:bg-white/[0.04]"
               >
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#1a1a1a] shadow-sm transition-opacity duration-300 group-hover:opacity-90">
                   {typeof tool.icon === "string" ? (
@@ -567,6 +586,10 @@ export default function PortfolioPage() {
                     {tool.description}
                   </p>
                 </div>
+                <HoverTooltip
+                  label={tool.name}
+                  className="left-auto right-3 top-3 mt-0 -translate-x-0"
+                />
               </Link>
             ))}
           </div>
@@ -600,6 +623,10 @@ export default function PortfolioPage() {
                     <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" />
                   </div>
                 </div>
+                <HoverTooltip
+                  label={thought.title}
+                  className="left-auto right-3 top-3 mt-0 -translate-x-0"
+                />
               </Link>
             ))}
           </div>
@@ -623,11 +650,11 @@ export default function PortfolioPage() {
                 setSubmissionMessage("");
               }
             }}
-            className="flex flex-col gap-5"
+            className="mx-auto flex w-full max-w-[760px] flex-col gap-4"
           >
-            <div className="grid gap-5 md:grid-cols-2">
-              <div className="flex flex-col gap-2">
-                <label htmlFor="contact-name" className="text-sm text-[#9ca3af]">
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="contact-name" className="text-xs text-[#9ca3af]">
                   Name
                 </label>
                 <input
@@ -636,11 +663,11 @@ export default function PortfolioPage() {
                   type="text"
                   placeholder="Your Name"
                   required
-                  className="rounded-xl bg-[#2a2a2a] px-4 py-3 text-white placeholder-[#6b7280] outline-none transition-opacity duration-300 hover:opacity-90 focus:opacity-100 focus:ring-2 focus:ring-[#ed6b4e]/20"
+                  className="rounded-lg bg-[#2a2a2a] px-4 py-2.5 text-sm text-white placeholder-[#6b7280] outline-none transition-opacity duration-300 hover:opacity-90 focus:opacity-100 focus:ring-2 focus:ring-[#ed6b4e]/20"
                 />
               </div>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="contact-email" className="text-sm text-[#9ca3af]">
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="contact-email" className="text-xs text-[#9ca3af]">
                   Email
                 </label>
                 <input
@@ -649,20 +676,20 @@ export default function PortfolioPage() {
                   type="email"
                   placeholder="Your@email.com"
                   required
-                  className="rounded-xl bg-[#2a2a2a] px-4 py-3 text-white placeholder-[#6b7280] outline-none transition-opacity duration-300 hover:opacity-90 focus:opacity-100 focus:ring-2 focus:ring-[#ed6b4e]/20"
+                  className="rounded-lg bg-[#2a2a2a] px-4 py-2.5 text-sm text-white placeholder-[#6b7280] outline-none transition-opacity duration-300 hover:opacity-90 focus:opacity-100 focus:ring-2 focus:ring-[#ed6b4e]/20"
                 />
               </div>
             </div>
-            <div className="flex flex-col gap-2">
-              <label className="text-sm text-[#9ca3af]">Budget</label>
+            <div className="flex flex-col gap-1.5">
+              <label className="text-xs text-[#9ca3af]">Budget</label>
               <CustomSelect
                 options={budgetOptions}
                 value={budget}
                 onChange={setBudget}
               />
             </div>
-            <div className="flex flex-col gap-2">
-              <label htmlFor="contact-message" className="text-sm text-[#9ca3af]">
+            <div className="flex flex-col gap-1.5">
+              <label htmlFor="contact-message" className="text-xs text-[#9ca3af]">
                 Message
               </label>
               <textarea
@@ -671,13 +698,13 @@ export default function PortfolioPage() {
                 rows={4}
                 placeholder="Message"
                 required
-                className="resize-y rounded-xl bg-[#2a2a2a] px-4 py-3 text-white placeholder-[#6b7280] outline-none transition-opacity duration-300 hover:opacity-90 focus:opacity-100 focus:ring-2 focus:ring-[#ed6b4e]/20"
+                className="resize-y rounded-lg bg-[#2a2a2a] px-4 py-2.5 text-sm text-white placeholder-[#6b7280] outline-none transition-opacity duration-300 hover:opacity-90 focus:opacity-100 focus:ring-2 focus:ring-[#ed6b4e]/20"
               />
             </div>
             <button
               type="submit"
               disabled={isSubmitting}
-              className="rounded-xl bg-[#ed6b4e] px-6 py-3.5 font-semibold text-white transition-opacity duration-300 hover:opacity-90"
+              className="rounded-lg bg-[#ed6b4e] px-6 py-2.5 text-sm font-semibold text-white transition-opacity duration-300 hover:opacity-90"
             >
               {isSubmitting
                 ? "Sending..."

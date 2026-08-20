@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Github, Instagram, MessageCircle } from "lucide-react";
+import HoverTooltip from "./HoverTooltip";
 
 const socialLinks = [
   {
@@ -81,9 +82,10 @@ export default function Sidebar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
-                  className="text-[#e8533a] transition-opacity duration-300 hover:opacity-70"
+                  className="group relative text-[#e8533a] transition-opacity duration-300 hover:opacity-70"
                 >
                   <Icon className="h-5 w-5" />
+                  <HoverTooltip label={link.label} />
                 </Link>
               );
             })}

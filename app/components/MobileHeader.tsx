@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Github, Instagram, MessageCircle } from "lucide-react";
+import HoverTooltip from "./HoverTooltip";
 
 const socialLinks = [
   { href: "https://discord.com/users/suffixs", label: "Discord", icon: MessageCircle },
@@ -52,9 +53,10 @@ export default function MobileHeader() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={link.label}
-              className="flex h-11 w-11 items-center justify-center rounded-full text-[#e8533a] transition-opacity hover:opacity-70"
+              className="group relative flex h-11 w-11 items-center justify-center rounded-full text-[#e8533a] transition-opacity hover:opacity-70"
             >
               <Icon className="h-5 w-5" />
+              <HoverTooltip label={link.label} />
             </Link>
           );
         })}
