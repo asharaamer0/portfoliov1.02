@@ -20,6 +20,19 @@ export async function generateMetadata({ params }: PageProps) {
   return {
     title: `${article.title} | Ashar Aamer`,
     description: article.excerpt,
+    alternates: { canonical: `/design-thoughts/${article.slug}` },
+    openGraph: {
+      title: `${article.title} | Ashar Aamer`,
+      description: article.excerpt,
+      url: `/design-thoughts/${article.slug}`,
+      images: [{ url: article.image, alt: article.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${article.title} | Ashar Aamer`,
+      description: article.excerpt,
+      images: [article.image],
+    },
   };
 }
 
@@ -34,17 +47,29 @@ function renderMarkdownLinks(text: string) {
     if (match.index > lastIndex) {
       parts.push(text.slice(lastIndex, match.index));
     }
-    parts.push(
-      <Link
-        key={match.index}
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-[#ed6b4e] transition-colors hover:underline"
-      >
-        {label}
-      </Link>
-    );
+    if (href.startsWith("/")) {
+      parts.push(
+        <Link
+          key={match.index}
+          href={href}
+          className="text-[#ed6b4e] transition-colors hover:underline"
+        >
+          {label}
+        </Link>
+      );
+    } else {
+      parts.push(
+        <Link
+          key={match.index}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#ed6b4e] transition-colors hover:underline"
+        >
+          {label}
+        </Link>
+      );
+    }
     lastIndex = match.index + fullMatch.length;
   }
 

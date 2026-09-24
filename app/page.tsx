@@ -9,6 +9,7 @@ import {
   Briefcase,
   Wrench,
   PenLine,
+  CircleHelp,
   ArrowUpRight,
   ArrowRight,
   Layers,
@@ -20,6 +21,7 @@ import {
 import MobileHeader from "./components/MobileHeader";
 import CustomSelect from "./components/CustomSelect";
 import HoverTooltip from "./components/HoverTooltip";
+import Faq from "./components/Faq";
 
 const navItems = [
   { href: "#hero", icon: Home, label: "Home" },
@@ -27,6 +29,7 @@ const navItems = [
   { href: "#experience", icon: Briefcase, label: "Experience" },
   { href: "#tools", icon: Wrench, label: "Tools" },
   { href: "#thoughts", icon: PenLine, label: "Thoughts" },
+  { href: "#faq", icon: CircleHelp, label: "FAQ" },
 ];
 
 const socialLinks = [
@@ -42,6 +45,13 @@ const stats = [
 ];
 
 const projects = [
+  {
+    slug: "fisik-app-video",
+    title: "Fisik.app Promo Video",
+    subtitle: "Instagram Reel — motion design for fisik.app",
+    image: "/fisiklogo.png",
+    imageFit: "contain" as const,
+  },
   {
     slug: "saas-demo-video",
     title: "SaaS Demo Video",
@@ -140,34 +150,31 @@ const tools = [
 
 const thoughts = [
   {
-    slug: "starting-and-growing-a-career-in-web-design",
-    title: "Starting and Growing a Career in Web Design",
+    slug: "discord-linked-support-portal-beesim",
+    title: "I Built a Discord-Linked Support Portal for a Game Community",
     excerpt:
-      "As the internet continues to develop and grow exponentially, jobs related to the industry do too, particularly those that relate to web design and development.",
-    date: "Apr 8, 2022",
-    readTime: "6min read",
-    image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+      "How I connected Discord and the web into one support system for BeeSim — verified account linking, synced tickets, and rotating staff passwords.",
+    date: "Jul 8, 2025",
+    readTime: "5 min read",
+    image: "/beesim.png",
   },
   {
-    slug: "create-a-landing-page-that-performs-great",
-    title: "Create a Landing Page That Performs Great",
+    slug: "after-effects-workflow-saas-videos",
+    title: "My After Effects Workflow for SaaS Product Videos",
     excerpt:
-      "Whether you work in marketing, sales, or product design, you understand the importance of a quality landing page.",
-    date: "Mar 15, 2022",
-    readTime: "6min read",
-    image:
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=80",
+      "Speed graphs, PosterizeTime, kinetic type, and 3D cameras — the exact workflow I use to cut SaaS demo videos and promos like the fisik.app Reel.",
+    date: "Feb 14, 2026",
+    readTime: "5 min read",
+    image: "/saas-video.png",
   },
   {
-    slug: "how-can-designers-prepare-for-the-future",
-    title: "How Can Designers Prepare for the Future?",
+    slug: "developer-and-video-editor-overlap",
+    title: "What Working as a Developer and Video Editor Taught Me",
     excerpt:
-      "Design is constantly evolving. Here is how you can stay ahead of the curve and future-proof your creative career.",
-    date: "Feb 28, 2022",
-    readTime: "6min read",
-    image:
-      "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=80",
+      "Timing, systems thinking, and iteration — why writing code made my edits sharper, and why cutting video made my interfaces better.",
+    date: "Nov 22, 2025",
+    readTime: "4 min read",
+    image: "/suffixsportfolio.png",
   },
 ];
 
@@ -272,7 +279,7 @@ export default function PortfolioPage() {
           {/* Profile image */}
           <div className="relative mb-4 overflow-hidden rounded-[12px] bg-[#cc3300]">
             <Image
-              src="/pfpicon.png"
+              src="/pfpiconnew.png"
               alt="Ashar Aamer"
               width={320}
               height={320}
@@ -323,6 +330,11 @@ export default function PortfolioPage() {
 
       {/* Right column */}
       <main className="w-full min-w-0 max-w-full flex-1 px-6 pt-[110px] lg:w-[60%] lg:flex-shrink-0 lg:px-0 lg:pr-[60px] lg:pt-[130px]">
+        <h1 className="sr-only">
+          Ashar Aamer — Pakistan-based developer and video editor specializing
+          in SaaS products, Next.js web development, and After Effects motion
+          design for international clients
+        </h1>
         <MobileHeader />
 
         {/* Top nav — centered, no pill */}
@@ -489,13 +501,13 @@ export default function PortfolioPage() {
                 className="group relative flex items-center gap-5 overflow-hidden rounded-2xl bg-[#1a1a1a] p-4 transition-all duration-500 hover:bg-white/[0.06]"
               >
                 <div className="absolute inset-0 bg-white/0 transition-all duration-500 group-hover:bg-white/[0.03]" />
-                <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-[#2a2a2a] md:h-28 md:w-28">
+                <div className="relative aspect-[16/10] w-32 shrink-0 overflow-hidden rounded-xl bg-[#0d0d0d] md:w-40">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    sizes="(max-width: 768px) 96px, 112px"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 128px, 160px"
+                    className="object-contain"
                   />
                 </div>
                 <div className="relative flex-1">
@@ -556,6 +568,24 @@ export default function PortfolioPage() {
         {/* Premium Tools */}
         <section id="tools" className="mb-24 md:mb-32">
           <SectionTitle line1="PREMIUM" line2="TOOLS" />
+          <p className="mx-auto mb-8 max-w-xl text-center text-[15px] leading-relaxed text-[#888888] lg:mx-0 lg:text-left">
+            The stack behind recent work — from the{" "}
+            <Link
+              href="/projects/beesim-support"
+              className="text-[#ed6b4e] transition-colors hover:underline"
+            >
+              BeeSim support portal
+            </Link>{" "}
+            to the{" "}
+            <Link
+              href="/projects/fisik-app-video"
+              className="text-[#ed6b4e] transition-colors hover:underline"
+            >
+              fisik.app promo video
+            </Link>
+            . Design, code, motion, and AI-assisted editing, each picked for
+            the job it does best.
+          </p>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {tools.map((tool) => (
               <Link
@@ -631,6 +661,8 @@ export default function PortfolioPage() {
             ))}
           </div>
         </section>
+
+        <Faq />
 
         {/* Contact */}
         <section id="contact" className="mb-24 md:mb-32">
@@ -733,7 +765,7 @@ export default function PortfolioPage() {
           <p>
             Made by{" "}
             <Link
-              href="https://suffixs.vercel.app"
+              href="https://www.asharaamer.dev"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#ed6b4e] transition-colors hover:underline"

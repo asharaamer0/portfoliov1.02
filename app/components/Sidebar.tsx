@@ -44,7 +44,7 @@ export default function Sidebar() {
           {/* Profile image */}
           <div className="relative mb-4 overflow-hidden rounded-[12px] bg-[#cc3300]">
             <Image
-              src="/pfpicon.png"
+              src="/pfpiconnew.png"
               alt="Ashar Aamer"
               width={320}
               height={320}

@@ -28,7 +28,7 @@ export default function MobileHeader() {
       </div>
       <div className="relative mb-5 w-full max-w-[270px] overflow-hidden rounded-[22px] bg-[#cc3300]">
         <Image
-          src="/pfpicon.png"
+          src="/pfpiconnew.png"
           alt="Ashar Aamer"
           width={270}
           height={270}

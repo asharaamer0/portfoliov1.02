@@ -1,6 +1,15 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { projects, getProjectBySlug } from "@/app/data/projects";
 import ProjectLayout from "@/app/components/ProjectLayout";
+import {
+  SpeedGraphExplorer,
+  PosterizeTimeDemo,
+  TextAnimatorDemo,
+  ModelTiltDemo,
+  PhysicsDiagramDemo,
+  AeStackGraphic,
+} from "@/app/components/FisikVisuals";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -19,6 +28,19 @@ export async function generateMetadata({ params }: PageProps) {
   return {
     title: `${project.title} | Ashar Aamer`,
     description: project.description,
+    alternates: { canonical: `/projects/${project.slug}` },
+    openGraph: {
+      title: `${project.title} | Ashar Aamer`,
+      description: project.description,
+      url: `/projects/${project.slug}`,
+      images: [{ url: project.image, alt: project.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | Ashar Aamer`,
+      description: project.description,
+      images: [project.image],
+    },
   };
 }
 
@@ -67,6 +89,197 @@ function SpeedGraphVisual() {
 }
 
 function ProjectContent({ slug }: { slug: string }) {
+  if (slug === "fisik-app-video") {
+    return (
+      <>
+        <p className="mb-6 text-[#b0b0b0]">
+          A fast-paced promo video for{" "}
+          <span className="font-semibold text-white">fisik.app</span> — a
+          physics learning platform — cut as an Instagram Reel. The whole piece
+          was constructed in After Effects: PosterizeTime for stepped snap,
+          kinetic text animators, 3D models with a one-node camera, advanced
+          speed graphs for every cut, and fully animated physics diagrams.
+        </p>
+
+        <div className="mb-8 flex flex-col gap-3 rounded-2xl border border-[#e8533a]/30 bg-[#e8533a]/10 p-5 sm:flex-row sm:items-center">
+          <div className="flex-1">
+            <p className="text-sm font-bold uppercase tracking-wider text-[#e8533a]">
+              Watch it live
+            </p>
+            <p className="mt-1 text-sm text-[#b0b0b0]">
+              The finished Reel is up on Instagram — sound on, it&apos;s timed
+              to the whooshes.
+            </p>
+          </div>
+          <Link
+            href="https://www.instagram.com/p/Ddc9fE4iPQO/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 rounded-full bg-[#e8533a] px-6 py-2.5 text-center text-sm font-bold text-white transition-opacity hover:opacity-90"
+          >
+            Open the Reel ↗
+          </Link>
+        </div>
+
+        <h2 className="mb-4 mt-10 text-2xl font-bold text-white">
+          The brief
+        </h2>
+        <p className="mb-6 text-[#b0b0b0]">
+          fisik.app needed a video that feels like physics itself: precise,
+          snappy, and a little bit playful. In under a minute it had to show
+          the product UI, prove the simulations are real math — not stock
+          animation — and end on the logo so viewers remember the name. That
+          meant every second had to do double duty: teach and tease at the
+          same time.
+        </p>
+        <div className="mb-6 grid gap-3 sm:grid-cols-3">
+          {[
+            { k: "Format", v: "9:16 Reel · <60s" },
+            { k: "Tool", v: "After Effects" },
+            { k: "Delivery", v: "fisik.app + Instagram" },
+          ].map((s) => (
+            <div key={s.k} className="rounded-xl bg-[#1a1a1a] p-4 text-center">
+              <p className="text-[11px] uppercase tracking-widest text-[#9ca3af]">
+                {s.k}
+              </p>
+              <p className="mt-1 text-sm font-bold text-white">{s.v}</p>
+            </div>
+          ))}
+        </div>
+
+        <h2 className="mb-4 mt-10 text-2xl font-bold text-white">
+          01 · PosterizeTime — the stepped textbook snap
+        </h2>
+        <p className="mb-6 text-[#b0b0b0]">
+          Continuous motion feels digital; stepped motion feels printed — like
+          a textbook flipping pages. An adjustment layer running{" "}
+          <code className="rounded bg-black/50 px-1.5 py-0.5 font-mono text-[0.85em] text-[#c8e832]">
+            posterizeTime()
+          </code>{" "}
+          was laid over the diagram sections so UI highlights and formula
+          reveals tick in discrete steps instead of gliding. Camera moves were
+          kept on a separate, smooth layer so the product still feels premium
+          while the diagrams feel tactile. Try it below — low fps is the
+          textbook look, high fps is the product look.
+        </p>
+        <PosterizeTimeDemo />
+
+        <h2 className="mb-4 mt-10 text-2xl font-bold text-white">
+          02 · Kinetic text animators
+        </h2>
+        <p className="mb-6 text-[#b0b0b0]">
+          Almost every headline — “Motion”, “Forces”, “Simulate” — is a text
+          animator, not keyframes on every letter. Tracking animators slam
+          words in from wide spacing, blur-rise animators float feature names
+          up out of the phone mockup, and a staggered overshoot preset gives
+          the “FISIK.APP” lockup its bounce. Range selectors with Ease High
+          mean one animator drives the whole word, so retiming the voiceover
+          never breaks the animation. Preview the three hero presets:
+        </p>
+        <TextAnimatorDemo />
+
+        <h2 className="mb-4 mt-10 text-2xl font-bold text-white">
+          03 · 3D models, cameras & depth
+        </h2>
+        <p className="mb-6 text-[#b0b0b0]">
+          The phone running fisik.app, the orbiting atom, and the floating
+          formula cards are layered 3D elements inside a single comp. A
+          one-node camera pushes in on every hook while null-parented parallax
+          layers drift at different depths, and a touch of depth of field
+          racks focus from the UI to the diagrams. Hover the mockup to feel
+          the parallax rig:
+        </p>
+        <ModelTiltDemo />
+
+        <h2 className="mb-4 mt-10 text-2xl font-bold text-white">
+          04 · Advanced speed graphs — no choppy cuts
+        </h2>
+        <p className="mb-6 text-[#b0b0b0]">
+          Nothing in this video cuts at constant speed. Scene changes ride a
+          slow → fast → slow ramp across position, scale, and rotation at
+          once; logo and UI impacts slam in fast and settle slow with motion
+          blur; diagram wipes use a whip-pan ramp with directional blur to
+          hide the splice. Each preset below is one of the actual graph shapes
+          from the project — the dot is the playhead riding the curve:
+        </p>
+        <SpeedGraphExplorer />
+
+        <h2 className="mb-4 mt-10 text-2xl font-bold text-white">
+          05 · Diagrams for physics — real equations on screen
+        </h2>
+        <p className="mb-6 text-[#b0b0b0]">
+          The centerpiece is a projectile-motion diagram drawn exactly the way
+          the app simulates it: launch vector, parabolic trim-path trajectory,
+          live range and height readouts. The path is a shape layer revealed
+          with Trim Paths, the vector rotates with an angle expression, and
+          the readouts are driven by the same{" "}
+          <code className="rounded bg-black/50 px-1.5 py-0.5 font-mono text-[0.85em] text-[#7dd3fc]">
+            R = v²·sin(2θ)/g
+          </code>{" "}
+          math. Change the angle and velocity — the video&apos;s diagram
+          obeys the same formulas:
+        </p>
+        <PhysicsDiagramDemo />
+        <p className="mb-6 text-[#b0b0b0]">
+          Supporting diagrams — free-body arrows, velocity vectors, energy
+          bars — all reuse one graphic language: lime trajectories, coral
+          vectors, dark-lab background. That consistency is what makes three
+          different physics ideas read as one brand in under a minute.
+        </p>
+
+        <h2 className="mb-4 mt-10 text-2xl font-bold text-white">
+          How the timeline was stacked
+        </h2>
+        <p className="mb-6 text-[#b0b0b0]">
+          Six layer groups, top to bottom. Text always wins the top slot so
+          headlines never get buried; the PosterizeTime adjustment sits above
+          everything diagram-related so it can be toggled per section without
+          touching the smooth camera layer.
+        </p>
+        <AeStackGraphic />
+
+        <h2 className="mb-4 mt-10 text-2xl font-bold text-white">
+          Sound & finishing
+        </h2>
+        <p className="mb-6 text-[#b0b0b0]">
+          Whooshes land exactly on speed-graph peaks, UI ticks on every
+          PosterizeTime step, and a soft low-end thump marks each equation
+          locking into place. Final grade: crushed blacks, coral pushed warm,
+          lime kept electric — the same palette as the fisik.app site so the
+          Reel and the landing page feel like one continuous surface.
+        </p>
+
+        <div className="mt-10 rounded-2xl bg-white p-6 text-center text-[#171717] md:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#e8533a]">
+            Result
+          </p>
+          <p className="mx-auto mt-3 max-w-xl text-lg font-bold leading-snug">
+            A sub-60-second loop that demos the product, proves the physics,
+            and ends on the logo.
+          </p>
+          <div className="mt-5 flex flex-col justify-center gap-3 sm:flex-row">
+            <Link
+              href="https://www.instagram.com/p/Ddc9fE4iPQO/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-[#171717] px-6 py-2.5 text-sm font-bold text-white transition-opacity hover:opacity-85"
+            >
+              Watch on Instagram ↗
+            </Link>
+            <Link
+              href="https://fisik.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border-2 border-[#171717] px-6 py-2.5 text-sm font-bold text-[#171717] transition-colors hover:bg-[#171717] hover:text-white"
+            >
+              Visit fisik.app ↗
+            </Link>
+          </div>
+        </div>
+      </>
+    );
+  }
+
   if (slug === "saas-demo-video") {
     return (
       <>
@@ -240,6 +453,8 @@ export default async function ProjectPage({ params }: PageProps) {
       title={project.title}
       subtitle={project.subtitle}
       image={project.image}
+      imageWidth={project.imageWidth}
+      imageHeight={project.imageHeight}
     >
       <ProjectContent slug={slug} />
     </ProjectLayout>

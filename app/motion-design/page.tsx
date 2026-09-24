@@ -4,7 +4,22 @@ import Sidebar from "@/app/components/Sidebar";
 
 export const metadata = {
   title: "After Effects & Motion Design | Ashar Aamer",
-  description: "Motion design and After Effects work by Ashar Aamer.",
+  description:
+    "Ashar Aamer is a motion designer who builds SaaS demo videos, Instagram promos, and kinetic typography in After Effects — see the workflow, speed-graph technique, and recent work.",
+  openGraph: {
+    title: "After Effects & Motion Design | Ashar Aamer",
+    description:
+      "SaaS demo videos, Instagram promos, and kinetic typography built in After Effects by Ashar Aamer.",
+    url: "/motion-design",
+    images: [{ url: "/saas-video.png", alt: "SaaS demo video still" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "After Effects & Motion Design | Ashar Aamer",
+    description:
+      "SaaS demo videos, Instagram promos, and kinetic typography built in After Effects by Ashar Aamer.",
+    images: ["/saas-video.png"],
+  },
 };
 
 export default function MotionDesignPage() {

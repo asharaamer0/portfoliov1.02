@@ -4,7 +4,24 @@ import Sidebar from "@/app/components/Sidebar";
 
 export const metadata = {
   title: "Figma, ReactJS & Web Design | Ashar Aamer",
-  description: "Web design, Figma, and ReactJS work by Ashar Aamer.",
+  description:
+    "Ashar Aamer designs in Figma and builds with React and Next.js — responsive interfaces, component systems, and portfolio-grade websites for clients worldwide.",
+  openGraph: {
+    title: "Figma, ReactJS & Web Design | Ashar Aamer",
+    description:
+      "Responsive interfaces designed in Figma and built with React and Next.js by Ashar Aamer.",
+    url: "/web-design",
+    images: [
+      { url: "/suffixsportfolio.png", alt: "Suffixs portfolio website" },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Figma, ReactJS & Web Design | Ashar Aamer",
+    description:
+      "Responsive interfaces designed in Figma and built with React and Next.js by Ashar Aamer.",
+    images: ["/suffixsportfolio.png"],
+  },
 };
 
 export default function WebDesignPage() {

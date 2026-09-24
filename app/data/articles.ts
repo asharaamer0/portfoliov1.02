@@ -10,75 +10,82 @@ export interface Article {
 
 export const articles: Article[] = [
   {
-    slug: "starting-and-growing-a-career-in-web-design",
-    title: "Starting and Growing a Career in Web Design",
+    slug: "discord-linked-support-portal-beesim",
+    title: "I Built a Discord-Linked Support Portal for a Game Community",
     excerpt:
-      "As the internet continues to develop and grow exponentially, jobs related to the industry do too, particularly those that relate to web design and development.",
-    date: "Apr 8, 2022",
-    readTime: "6min read",
-    image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-    content: `As the internet continues to develop and grow exponentially, jobs related to the industry do too, particularly those that relate to web design and development. The prediction is that by 2029, the job outlook for these two fields will grow by 8%—significantly faster than average. Whether you're seeking salaried employment or aiming to work in a freelance capacity, a career in web design can offer a variety of employment arrangements, competitive salaries, and opportunities to utilize both technical and creative skill sets.
+      "How I connected Discord and the web into one support system for BeeSim — verified account linking, synced tickets, and rotating staff passwords.",
+    date: "Jul 8, 2025",
+    readTime: "5 min read",
+    image: "/beesim.png",
+    content: `Players were asking for help in five different Discord channels, staff were answering the same questions twice, and nobody could tell which issues were still open. That was the support situation at BeeSim when I took it on. I fixed it by building [BeeSim Support](/projects/beesim-support), a portal that connects Discord identities to a web dashboard so every ticket lives in one place no matter where it starts.
 
-What does a career in web design involve?
-A career in website design can involve the design, creation, and coding of a range of website types. Other tasks will typically include liaising with clients and discussing website specifications, incorporating feedback, working on graphic design and image editing, and enabling multimedia features such as audio and video. Requiring a range of creative and technical skills, web designers may be involved in work across a range of industries, including software companies, IT consultancies, web design companies, corporate organizations, and more.
+Linking Discord to the web
+The first piece was account linking. Players connect their Discord identity to their web profile, so every ticket arrives carrying a verified username and server history. Staff never have to ask "what is your Discord" again, and impersonation stops being a problem because identity is confirmed on both sides before a ticket can even be created. That single decision removed an entire category of confusion.
 
-In contrast with web developers, web designers tend to play a more creative role, crafting the overall vision and design of a site, and determining how to best incorporate the necessary functionality. However, there can be significant overlap between the roles.
+One ticket, two interfaces
+The second piece was syncing. A ticket created on the web is mirrored into the right staff Discord channels by bots, and replies flow both ways — a moderator answering from Discord and one answering from the dashboard see the same thread, the same history, and the same status. Players stay inside the community they already live in, while staff get a calm, organized queue instead of five noisy channels.
 
-Full-stack, back-end, and front-end web development
-The U.S. Bureau of Labor Statistics (BLS) Occupational Outlook Handbook tends to group web developers and digital designers into one category. However, they define them separately, stating that web developers create and maintain websites and are responsible for the technical aspects including performance and capacity. Web or digital designers, on the other hand, are responsible for the look and functionality of websites and interfaces. They develop, create, and test the layout, functions, and navigation for usability.
+Security had to come first
+A support system holds sensitive conversations, so the admin portal sits behind rotating secured passwords rather than static credentials. Logins are validated on every attempt, and sensitive actions ask for re-authentication before anything changes. If a password ever leaks, its useful lifetime is short by design. Security is not a feature I bolted on later — it shaped the architecture from the first sketch.
 
-Web developers can focus on the back-end, front-end, or full-stack development, and typically utilize a range of programming languages, libraries, and frameworks to do so. Web designers may work more closely with front-end engineers to establish the user-end functionality and appearance of a site.
+Built for a crowd
+BeeSim has a large player base and a growing staff team, so the system needed structure. Ticket categories, priority levels, and assignment rules keep things organized during peak hours, and automated status updates tell players when their issue is being worked on, resolved, or escalated. Nobody is left wondering whether anyone saw their message.
 
-Are web designers in demand?
-In our ever-increasingly digital environment, there is a constant need for websites—and therefore for web designers and developers. With 17.4 billion websites in existence as of January 2020, the demand for web developers is only expected to rise. Web designers with significant coding experience are typically in higher demand and can usually expect a higher salary. Like all jobs, there are likely to be a range of opportunities, some of which are better paid than others.
-
-If you're interested in pursuing a career in web design or starting a freelance business, having a professional portfolio website is essential. You can explore ready-made web design templates tailored for showcasing your work and impressing potential clients at Templyo. These templates make it easier to create stunning websites without the need for extensive coding knowledge.
-
-Starting Your Web Design Career Online
-A strong career in web design needs two things working together: a portfolio that impresses and a presence that keeps you visible.
-
-[Templyo](https://templyo.com) — ready-made Framer templates to build a professional portfolio without starting from scratch.
-
-[PostWing](https://postwing.io) — schedule and manage social posts across 8 platforms from one dashboard.
-
-Your site shows what you can build. Your social channels show you're active, credible, and worth hiring — consistently, not just when you remember to post.`,
+What I would do differently
+If I rebuilt it today, I would add an audit log on every ticket, SLA timers per priority level, and saved replies for the ten questions that make up half of all tickets. The core idea would stay exactly the same though: meet users where they already are, and give staff one calm screen. You can read the full project breakdown on the [BeeSim Support page](/projects/beesim-support).`,
   },
   {
-    slug: "create-a-landing-page-that-performs-great",
-    title: "Create a Landing Page That Performs Great",
+    slug: "after-effects-workflow-saas-videos",
+    title: "My After Effects Workflow for SaaS Product Videos",
     excerpt:
-      "Whether you work in marketing, sales, or product design, you understand the importance of a quality landing page.",
-    date: "Mar 15, 2022",
-    readTime: "6min read",
-    image:
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=80",
-    content: `Whether you work in marketing, sales, or product design, you understand the importance of a quality landing page. Landing pages are standalone websites used to generate leads or sales—in other words they help you increase your revenue.
+      "Speed graphs, PosterizeTime, kinetic type, and 3D cameras — the exact workflow I use to cut SaaS demo videos and promos like the fisik.app Reel.",
+    date: "Feb 14, 2026",
+    readTime: "5 min read",
+    image: "/saas-video.png",
+    content: `Every SaaS video I cut — from the [SaaS demo reel](/projects/saas-demo-video) to the recent [fisik.app promo](/projects/fisik-app-video) — follows the same workflow. It is the only way I can deliver a sub-60-second promo in days instead of weeks without the edit feeling rushed. Here is that workflow, step by step.
 
-A great landing page starts with a clear value proposition. Visitors should immediately understand what you offer and why it matters to them. Keep the headline concise, the supporting copy focused, and the call-to-action prominent.
+Start with the hook, not the logo
+The first two seconds decide whether anyone keeps watching, so I never open on a logo. I open on the product already in motion: a screen recording mid-scroll, a UI element slamming into frame, a diagram drawing itself. The brand lockup goes at the end, where it acts as a payoff instead of a barrier. If the hook does not work with the sound off, it does not work.
 
-Design also plays a critical role. Use plenty of white space, choose a readable typeface, and make sure your primary button stands out. Visual hierarchy guides the eye toward the most important elements and reduces friction for the user.
+Speed graphs carry every cut
+Nothing in my videos cuts at constant speed. Scene changes ride a slow, fast, slow ramp across position, scale, and rotation at the same time. Impact moments slam in fast and settle slow with motion blur. Diagram wipes use a whip-pan ramp with directional blur to hide the splice. I shape these curves in the graph editor until the playhead feels like it has weight, because weight is what makes motion feel expensive.
 
-Finally, test and iterate. Small changes to headlines, buttons, and imagery can have a big impact on conversion rates. Use analytics and user feedback to keep improving your page over time.`,
+PosterizeTime for texture
+Continuous motion feels digital, so I lay an adjustment layer running posterizeTime over diagram sections to make highlights and reveals tick in discrete steps. It gives technical content a tactile, textbook feel while the camera moves underneath stay smooth. Low step values read as stylized and snappy, higher values stay premium. One expression controls the whole texture of a section.
+
+Type is a visual, not a label
+Almost every headline I animate is a text animator, not hand-placed keyframes. Tracking animators slam words in from wide spacing, blur-rise animators float feature names out of mockups, and staggered overshoots give lockups their bounce. Range selectors with Ease High mean a single animator drives the whole word, so retiming to a voiceover never breaks the animation.
+
+One camera, real depth
+Product mockups, floating cards, and background grids live as 3D layers under a single one-node camera. Null-parented parallax layers drift at different depths on every push-in, and a touch of depth of field racks focus from the interface to the diagrams. Depth is what separates a flat slideshow from a video that feels like a place.
+
+Sound is half the edit
+Whooshes land exactly on speed-graph peaks, interface ticks fall on every stepped frame, and a soft low-end thump marks each equation locking into place. Then a final grade — crushed blacks, warm highlights — ties the video to the product website so both feel like one surface. You can see the whole approach applied across my [motion design work](/motion-design).`,
   },
   {
-    slug: "how-can-designers-prepare-for-the-future",
-    title: "How Can Designers Prepare for the Future?",
+    slug: "developer-and-video-editor-overlap",
+    title: "What Working as a Developer and Video Editor Taught Me",
     excerpt:
-      "Design is constantly evolving. Here is how you can stay ahead of the curve and future-proof your creative career.",
-    date: "Feb 28, 2022",
-    readTime: "6min read",
-    image:
-      "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=80",
-    content: `Design is constantly evolving. Here is how you can stay ahead of the curve and future-proof your creative career.
+      "Timing, systems thinking, and iteration — why writing code made my edits sharper, and why cutting video made my interfaces better.",
+    date: "Nov 22, 2025",
+    readTime: "4 min read",
+    image: "/suffixsportfolio.png",
+    content: `People assume development and video editing are opposite talents — one logical, one creative. After doing both professionally for years, I can tell you they are the same job wearing different clothes. Writing code made my edits sharper, and cutting video made my interfaces better. This is what each craft taught the other.
 
-First, keep learning. New tools, frameworks, and design patterns emerge every year. Set aside time to experiment with them, even if they are not part of your day-to-day work.
+Timing is everything in both
+An easing curve in CSS and an easing curve in the After Effects graph editor are literally the same math, and both decide whether something feels cheap or premium. Editing taught me to feel rhythm in frames, and that sense now drives every interaction I build — how long a hover state lingers, how a page reveals on scroll, when to hold back instead of animating everything. Developers who have never cut video tend to animate too much. Editors who have never shipped code tend to ignore the cost of every millisecond.
 
-Second, build a strong foundation. Trends come and go, but principles like typography, color theory, and user psychology remain valuable. Mastering the basics will help you adapt to any new medium.
+Systems beat one-offs
+In code I reach for components, design tokens, and auto-layout. In video I reach for presets, text animators, and Motion Graphics templates. Both are the same instinct: build the pattern once, reuse it everywhere, change it in one place. The [BeeSim Support](/projects/beesim-support) portal runs on ticket categories and assignment rules for the same reason my edits run on animator presets — a system scales, a one-off does not.
 
-Third, collaborate across disciplines. The best designers understand development, marketing, and product strategy. The more you can speak the language of your teammates, the more impactful your work will be.
+Iteration is the actual skill
+Neither craft rewards getting it right the first time. Code goes through drafts, reviews, and refactors. Edits go through rough cuts, client notes, and version twelve. Working in both taught me to detach from any single version and to treat feedback as data instead of criticism. The willingness to cut a beloved transition is the same muscle as deleting a clever function that nobody can maintain.
 
-Finally, share what you know. Teaching, writing, and speaking not only help others, they also sharpen your own thinking and open up new opportunities.`,
+Constraints make both better
+A sixty-second vertical reel and a performance budget are the same kind of gift. Both force clarity: one message per section, nothing decorative, every element earning its place. Some of my cleanest code and my tightest edits came from the smallest briefs. Unlimited time and unlimited scope have never once improved my work.
+
+Where they meet
+My [portfolio site](/projects/suffixs-portfolio) is where both crafts finally share one screen — a Next.js build with motion-design instincts, parallax depth, and scroll-triggered reveals timed like cuts. If you hire one person who does both, you do not get two half-skills. You get someone who thinks in timing and ships in systems.`,
   },
 ];
 

@@ -9,6 +9,8 @@ interface ProjectLayoutProps {
   title: string;
   subtitle: string;
   image: string;
+  imageWidth?: number;
+  imageHeight?: number;
   children: React.ReactNode;
 }
 
@@ -16,6 +18,8 @@ export default function ProjectLayout({
   title,
   subtitle,
   image,
+  imageWidth = 800,
+  imageHeight = 400,
   children,
 }: ProjectLayoutProps) {
   return (
@@ -32,15 +36,28 @@ export default function ProjectLayout({
             Back to projects
           </Link>
 
-          <div className="relative mb-8 aspect-[2/1] w-full overflow-hidden rounded-3xl">
+          {/* Banner: ambient blurred fill + sharp foreground capped at
+              natural resolution so logos never upscale into grain */}
+          <div className="relative mb-8 aspect-[2/1] w-full overflow-hidden rounded-3xl bg-[#0d0d0d]">
             <Image
               src={image}
-              alt={title}
+              alt=""
+              aria-hidden="true"
               fill
               sizes="(max-width: 768px) 100vw, 800px"
-              className="object-cover"
-              priority
+              className="scale-110 object-cover opacity-40 blur-2xl"
             />
+            <div className="absolute inset-0 flex items-center justify-center p-6 md:p-10">
+              <Image
+                src={image}
+                alt={title}
+                width={imageWidth}
+                height={imageHeight}
+                className="h-auto max-h-full w-auto max-w-full rounded-xl shadow-2xl"
+                style={{ maxWidth: imageWidth }}
+                priority
+              />
+            </div>
           </div>
 
           <p className="mb-3 text-sm text-[#9ca3af]">{subtitle}</p>
